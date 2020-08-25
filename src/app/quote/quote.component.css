@@ -1,0 +1,13 @@
+.tooslie h1 {
+    font-family: 'Monoton', cursive;
+    color: rgb(87, 128, 161);
+}
+
+.content {
+    display: flex;
+    margin: 8px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+}

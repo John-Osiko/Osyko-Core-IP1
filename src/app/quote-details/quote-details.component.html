@@ -1,3 +1,10 @@
 <p>
     {{ quote.description }}
 </p>
+<p>Quote {{quote.id}} was uploaded {{quote.submitDate | date | dateCount}} days ago.</p>
+
+<button (click)='likeButton()' class="btn btn-outline-success"><i class="fa fa-thumbs-up "></i></button>{{numberOfLikes}}
+
+<button (click)=' dislikeButton()' class="btn btn-outline-danger"><i class=" fa fa-thumbs-down "></i></button>{{numberOfDislikes}}
+
+<button (click)='quoteDelete(true)' class="btn btn-outline-dark"><i class="fa fa-trash "></i></button>

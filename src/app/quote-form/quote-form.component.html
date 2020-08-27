@@ -1,1 +1,49 @@
-<p>quote-form works!</p>
+<div class="container-fluid">
+    <h2 class="heading">Share a Quote Here!</h2>
+    <hr>
+    <form (ngSubmit)='submitQuote();quotesForm.resetForm({}) ' #quotesForm='ngForm'>
+        <div class="form-group">
+            <label for="title">Quote Title</label>
+            <input type="text" required class="form-control" id="title" [(ngModel)]="newQuote.title" name="title" #title='ngModel'>
+            <div *ngIf="title.invalid && title.dirty" class="alert alert-danger">
+                <div *ngIf="title.errors.required">
+                    Title is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">Quote</label>
+            <textarea class="form-control" id="quote" rows="2" required [(ngModel)]="newQuote.name" name="name" #name='ngModel'></textarea>
+            <div *ngIf="name.invalid && name.dirty" class="alert alert-danger ">
+                <div *ngIf="name.errors.required ">
+                    Quote can not be empty.
+                </div>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="description ">Quote Author</label>
+            <input type="text " required class="form-control " id="description " [(ngModel)]="newQuote.description" name="description " #description='ngModel'>
+            <div *ngIf="description.invalid && description.dirty " class="alert alert-danger ">
+                <div *ngIf="description.errors.required ">
+                    Author's name is required. </div>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="name ">Your Name</label>
+            <input type="text " required class="form-control " id="name " [(ngModel)]="newQuote.poster " name="poster " #poster='ngModel' minlength="3 ">
+            <div *ngIf="poster.invalid && poster.dirty " class="alert alert-danger ">
+                <div *ngIf="poster.errors.required ">
+                    Your name is required.
+                </div>
+                <div *ngIf="poster.errors.minlength ">
+                    Name is at least 3 characters long.
+                </div>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="submitDate ">Date</label>
+            <input type='date' id="submitDate" [(ngModel)]="newQuote.submitDate " name="submitDate " #submitDate='ngModel' required>
+        </div>
+        <button type="submit " class="btn btn-info ">Post Quote</button>
+    </form>
+</div>

@@ -1,12 +1,31 @@
 <p>quote works!</p>
 <div class="content" role="main">
-    <div class="tooslie">
+    <div class="tooslie container">
         <h1>Quotes</h1>
-        <ul>
-            <li *ngFor='let quote of quotes'>
-                {{ quote.name }}
-                <app-quote-details [quote]='quote'></app-quote-details>
-            </li>
-        </ul>
+        <div class="row">
+
+            <div class="col-md-5">
+                <app-quote-form (addQuote)='addNewQuote($event)'></app-quote-form>
+            </div>
+
+            <div class="col-md-7" style="width:500px">
+                <div id="{{i}}" appHighlightQuote class="card" *ngFor='let quote of quotes; let i=index'>
+                    <p class="card-title"> {{ quote.title }}</p>
+
+                    <p class="card-text">{{ quote.name }}</p>
+
+                    <div class="card-body">
+                        <button (click)='toggleDetails(i)' class="btn btn-outline-info" data-toggle="button">
+                            Quote info
+                        </button>
+
+                        <div *ngIf='quote.showDescription'>
+                            <app-quote-details [quote]='quote' (isComplete)='deleteQuote($event,i)'></app-quote-details>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-</div>

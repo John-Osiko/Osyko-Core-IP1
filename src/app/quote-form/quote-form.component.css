@@ -1,0 +1,39 @@
+.container-fluid {
+    background-image: url('../images/fantasy-3915624_1920.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    height: 100vh;
+    align-items: left;
+}
+
+hr {
+    background-color: white;
+}
+
+.container-fluid form {
+    display: flex;
+    margin: 7px 32px;
+    padding: 0 6px;
+    max-width: 260px;
+    flex-direction: column;
+    border-radius: 10px;
+    font-family: 'Patrick Hand', cursive;
+}
+
+h2 {
+    font-family: 'Satisfy', cursive;
+    padding-top: 15px;
+    font-weight: 500;
+}
+
+label {
+    font-size: 26px;
+}
+
+@media screen and (max-width: 767px) {
+    .container-fluid {
+        height: 100vh;
+        width: 85vw;
+    }
+}
